@@ -204,6 +204,12 @@ p {
   width: 100%;
 }
 
+.cat-image-button .cat-image-fallback {
+  height: 100%;
+  transform: scale(0.82);
+  width: 100%;
+}
+
 .real-cat-portrait {
   background: var(--paper);
   border: 3px solid rgba(183, 131, 90, 0.18);
