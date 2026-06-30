@@ -1,0 +1,10 @@
+Put comic cat character images here.
+
+Recommended filenames:
+
+cat-island.png
+plant-space.png
+book-house.png
+cafe.png
+lawn.png
+installation.png

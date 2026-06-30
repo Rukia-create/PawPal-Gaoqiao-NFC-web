@@ -1,0 +1,1 @@
+Put PawPal character images in this folder.

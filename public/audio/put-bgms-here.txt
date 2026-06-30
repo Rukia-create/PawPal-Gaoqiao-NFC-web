@@ -1,0 +1,1 @@
+Put BGM and sound effect files in this folder.
