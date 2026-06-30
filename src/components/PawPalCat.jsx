@@ -16,7 +16,7 @@ export default function PawPalCat({ alt, className = "", point, type = "comic", 
   return (
     <button className={`cat-image-button ${className}`} type="button" onClick={onClick}>
       {hasImageError ? (
-        <div className="pawpal" aria-label={alt || point.catName}>
+        <div className="pawpal cat-image-fallback" aria-label={alt || point.catName}>
           <div className="pawpal-ear pawpal-ear-left" />
           <div className="pawpal-ear pawpal-ear-right" />
           <div className="pawpal-face">
