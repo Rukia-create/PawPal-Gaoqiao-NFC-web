@@ -3,7 +3,7 @@ import PawPalCat from "./PawPalCat.jsx";
 
 export default function CurrentCatModal({ collectedCats, onClose, point, total }) {
   return (
-    <Modal title="猫咪图鉴" onClose={onClose}>
+    <Modal title={point.atlasTitle || "猫咪图鉴"} onClose={onClose}>
       <div className="modal-main cat-profile">
         <PawPalCat className="modal-cat-image" point={point} type="real" />
         <h3>{point.catName}</h3>
