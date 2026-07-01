@@ -1,8 +1,12 @@
 import PawPalCat from "./PawPalCat.jsx";
 
 export default function WelcomeScreen({ point }) {
+  const welcomeHello = point.welcomeHello || "Hi，你找到我啦！";
+  const welcomeTitle = point.welcomeTitle || `我是 ${point.catName}`;
+  const welcomeText = point.welcomeText || point.healingText;
+
   return (
-    <section className="welcome-v03 cat-island-welcome">
+    <section className={`welcome-v03 cat-island-welcome welcome-point-${point.id}`}>
       <div className="welcome-atmosphere" aria-hidden="true">
         <span className="deco leaf leaf-one" />
         <span className="deco leaf leaf-two" />
@@ -17,9 +21,9 @@ export default function WelcomeScreen({ point }) {
       </div>
 
       <div className="welcome-copy">
-        <p className="welcome-line hello">{"Hi\uFF0C\u4F60\u627E\u5230\u6211\u5566\uFF01"}</p>
-        <h1>{`\u6211\u662F ${point.catName}`}</h1>
-        <p className="welcome-line healing">{point.healingText}</p>
+        <p className="welcome-line hello">{welcomeHello}</p>
+        <h1>{welcomeTitle}</h1>
+        <p className="welcome-line healing">{welcomeText}</p>
       </div>
 
       <div className="pull-hint game-pull-hint">
