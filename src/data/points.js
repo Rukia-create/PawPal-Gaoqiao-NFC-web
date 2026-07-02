@@ -22,7 +22,7 @@ export const points = [
     musicLabel: "主题曲片段 01",
     musicDescription: "恭喜你，收集到高桥宠物友好村主题曲片段 01 集齐8个片段可以解锁完整主题曲哦！",
     audioSrc: "/audio/fragments/qiaomiaoqiyuan-01.mp3",
-    fullThemeAudioSrc: "/audio/full-theme.mp3",
+    fullThemeAudioSrc: "/audio/qiaomiao-qiyuan-full.mp3",
     nextPointId: "plant-space"
   },  {
     id: "plant-space",
@@ -47,7 +47,7 @@ export const points = [
     musicLabel: "主题曲片段 02",
     musicDescription: "恭喜你，收集到高桥宠物友好村主题曲片段 02 集齐8个片段可以解锁完整主题曲哦！",
     audioSrc: "/audio/fragments/qiaomiaoqiyuan-02.mp3",
-    fullThemeAudioSrc: "/audio/full-theme.mp3",
+    fullThemeAudioSrc: "/audio/qiaomiao-qiyuan-full.mp3",
     nextPointId: "book-house"
   },
   {
@@ -73,7 +73,7 @@ export const points = [
     musicLabel: "主题曲片段 03",
     musicDescription: "恭喜你，收集到高桥宠物友好村主题曲片段 03 集齐8个片段可以解锁完整主题曲哦！",
     audioSrc: "/audio/fragments/qiaomiaoqiyuan-03.mp3",
-    fullThemeAudioSrc: "/audio/full-theme.mp3",
+    fullThemeAudioSrc: "/audio/qiaomiao-qiyuan-full.mp3",
     nextPointId: "cafe"
   },
   {
@@ -100,7 +100,7 @@ export const points = [
     musicLabel: "主题曲片段 04",
     musicDescription: "恭喜你，收集到高桥宠物友好村主题曲片段 04 集齐8个片段可以解锁完整主题曲哦！",
     audioSrc: "/audio/fragments/qiaomiaoqiyuan-04.mp3",
-    fullThemeAudioSrc: "/audio/full-theme.mp3",
+    fullThemeAudioSrc: "/audio/qiaomiao-qiyuan-full.mp3",
     nextPointId: "lawn"
   },
   {
@@ -126,7 +126,7 @@ export const points = [
     musicLabel: "主题曲片段 05",
     musicDescription: "恭喜你，收集到高桥宠物友好村主题曲片段 05 集齐8个片段可以解锁完整主题曲哦！",
     audioSrc: "/audio/fragments/qiaomiaoqiyuan-05.mp3",
-    fullThemeAudioSrc: "/audio/full-theme.mp3",
+    fullThemeAudioSrc: "/audio/qiaomiao-qiyuan-full.mp3",
     nextPointId: "cat-oracle"
   },
   {
@@ -152,7 +152,7 @@ export const points = [
     musicLabel: "主题曲片段 06",
     musicDescription: "恭喜你，收集到高桥宠物友好村主题曲片段 06 集齐8个片段可以解锁完整主题曲哦！",
     audioSrc: "/audio/fragments/qiaomiaoqiyuan-06.mp3",
-    fullThemeAudioSrc: "/audio/full-theme.mp3",
+    fullThemeAudioSrc: "/audio/qiaomiao-qiyuan-full.mp3",
     nextPointId: "fengwu-museum"
   },
   {
@@ -178,7 +178,7 @@ export const points = [
     musicLabel: "主题曲片段 07",
     musicDescription: "恭喜你，收集到高桥宠物友好村主题曲片段 07 集齐8个片段可以解锁完整主题曲哦！",
     audioSrc: "/audio/fragments/qiaomiaoqiyuan-07.mp3",
-    fullThemeAudioSrc: "/audio/full-theme.mp3",
+    fullThemeAudioSrc: "/audio/qiaomiao-qiyuan-full.mp3",
     nextPointId: "installation"
   },
   {
@@ -204,9 +204,10 @@ export const points = [
     musicLabel: "主题曲片段 08",
     musicDescription: "恭喜你，收集到高桥宠物友好村主题曲片段 08 集齐8个片段可以解锁完整主题曲哦！",
     audioSrc: "/audio/fragments/qiaomiaoqiyuan-08.mp3",
-    fullThemeAudioSrc: "/audio/full-theme.mp3",
+    fullThemeAudioSrc: "/audio/qiaomiao-qiyuan-full.mp3",
     nextPointId: "cat-island"
   }
 ];
+
 
 

@@ -824,6 +824,26 @@ dd {
   text-align: center;
 }
 
+.full-theme-modal {
+  gap: 14px;
+  justify-items: center;
+}
+
+.full-theme-modal p {
+  color: var(--ink);
+  font-size: 15px;
+  font-weight: 900;
+  line-height: 1.55;
+  margin: 0;
+  text-align: center;
+}
+
+.full-theme-audio {
+  display: block;
+  max-width: 340px;
+  width: 100%;
+}
+
 .interaction-modal-main {
   display: grid;
   gap: 14px;

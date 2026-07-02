@@ -1,22 +1,37 @@
 import { useState } from "react";
-import { MUSIC_FRAGMENT_IDS } from "../data/points.js";
+import { MUSIC_FRAGMENT_IDS, points as allPoints } from "../data/points.js";
 import { playPointAudio, stopPointAudio } from "../services/audioPlayer.js";
+import Modal from "./Modal.jsx";
 
 function formatFragmentId(fragmentId) {
   return String(fragmentId).padStart(2, "0");
 }
 
+function FullThemeModal({ audioSrc, onClose }) {
+  return (
+    <Modal title="完整主题曲" onClose={onClose}>
+      <div className="modal-main full-theme-modal">
+        <p>正在播放 高桥宠物友好村主题曲-桥喵奇缘</p>
+        <audio className="full-theme-audio" src={audioSrc} controls autoPlay>
+          你的浏览器暂不支持音频播放。
+        </audio>
+      </div>
+    </Modal>
+  );
+}
+
 export default function FullMusicAtlasPage({
   collectedMusicFragments,
   onBack,
-  onOpenThemeSong,
   points,
   themeUnlocked
 }) {
   const [playingFragmentId, setPlayingFragmentId] = useState(null);
+  const [showFullThemeModal, setShowFullThemeModal] = useState(false);
   const fragmentPoints = MUSIC_FRAGMENT_IDS.map((fragmentId) =>
     points.find((point) => point.fragmentId === fragmentId)
   );
+  const fullThemeAudioSrc = allPoints[0]?.fullThemeAudioSrc || "/audio/qiaomiao-qiyuan-full.mp3";
 
   async function toggleFragment(point, fragmentId) {
     if (playingFragmentId === fragmentId) {
@@ -38,13 +53,18 @@ export default function FullMusicAtlasPage({
   function handleBack() {
     stopPointAudio();
     setPlayingFragmentId(null);
+    setShowFullThemeModal(false);
     onBack();
   }
 
-  function handleOpenThemeSong() {
+  function handleOpenFullTheme() {
     stopPointAudio();
     setPlayingFragmentId(null);
-    onOpenThemeSong();
+    setShowFullThemeModal(true);
+  }
+
+  function handleCloseFullTheme() {
+    setShowFullThemeModal(false);
   }
 
   return (
@@ -96,11 +116,15 @@ export default function FullMusicAtlasPage({
           className="primary-button"
           type="button"
           disabled={!themeUnlocked}
-          onClick={handleOpenThemeSong}
+          onClick={handleOpenFullTheme}
         >
           播放完整主题曲
         </button>
       </article>
+
+      {showFullThemeModal && (
+        <FullThemeModal audioSrc={fullThemeAudioSrc} onClose={handleCloseFullTheme} />
+      )}
     </section>
   );
 }
