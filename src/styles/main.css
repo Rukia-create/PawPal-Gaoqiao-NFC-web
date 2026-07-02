@@ -843,6 +843,26 @@ dd {
   min-height: 52px;
 }
 
+.installation-story-modal {
+  gap: 8px;
+  min-height: 0;
+  padding: 4px 2px 2px;
+}
+
+.installation-story-modal p {
+  color: #5f523f;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.72;
+  margin: 0;
+  text-align: left;
+}
+
+.installation-story-modal .story-spacer {
+  display: block;
+  height: 6px;
+}
+
 .flower-option-grid {
   display: grid;
   gap: 10px;
@@ -1713,6 +1733,20 @@ button.collection-card:disabled {
 }
 
 .welcome-point-cat-oracle .welcome-copy {
+  margin-top: 14px;
+}
+
+.welcome-point-installation .real-cat-portrait.hero-cutout-cat {
+  height: min(58vh, 440px);
+  max-height: 50vh;
+  width: min(82vw, 330px);
+}
+
+.welcome-point-installation .real-cat-portrait.hero-cutout-cat img {
+  transform: scale(0.98);
+}
+
+.welcome-point-installation .welcome-copy {
   margin-top: 14px;
 }
 

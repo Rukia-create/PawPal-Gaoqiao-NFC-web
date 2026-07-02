@@ -253,6 +253,18 @@ function CatOracleModal({ point, onClose }) {
   );
 }
 
+function InstallationStoryModal({ point, onClose }) {
+  return (
+    <Modal title="高桥寻喵志" onClose={onClose}>
+      <div className="modal-main interaction-modal-main installation-story-modal">
+        {point.activityText.split("\n").map((line, index) =>
+          line ? <p key={`${line}-${index}`}>{line}</p> : <span className="story-spacer" key={`space-${index}`} />
+        )}
+      </div>
+    </Modal>
+  );
+}
+
 export default function MainInteractionScreen({
   isCatMoved,
   onCatClick,
@@ -266,6 +278,7 @@ export default function MainInteractionScreen({
   const isCatIslandPoint = point.id === "cat-island";
   const isLawnPoint = point.id === "lawn";
   const isCatOraclePoint = point.id === "cat-oracle";
+  const isInstallationPoint = point.id === "installation";
 
   function handleCatClick() {
     if (isCafePoint) {
@@ -275,6 +288,11 @@ export default function MainInteractionScreen({
 
     if (isCatOraclePoint) {
       setActiveInteractionModal("oracle");
+      return;
+    }
+
+    if (isInstallationPoint) {
+      setActiveInteractionModal("installation-story");
       return;
     }
 
@@ -301,7 +319,7 @@ export default function MainInteractionScreen({
       );
     }
 
-    if (isCatOraclePoint) {
+    if (isCatOraclePoint || isInstallationPoint) {
       return null;
     }
 
@@ -311,7 +329,7 @@ export default function MainInteractionScreen({
   return (
     <section className="interaction-v03">
       <div className="interaction-stage">
-        {!isCatOraclePoint && !isCafePoint && (
+        {!isCatOraclePoint && !isCafePoint && !isInstallationPoint && (
           <div className={isCatMoved ? "activity-tip shown" : "activity-tip"}>
             {renderInteractionTip()}
           </div>
@@ -374,6 +392,9 @@ export default function MainInteractionScreen({
       )}
       {activeInteractionModal === "oracle" && (
         <CatOracleModal point={point} onClose={() => setActiveInteractionModal(null)} />
+      )}
+      {activeInteractionModal === "installation-story" && (
+        <InstallationStoryModal point={point} onClose={() => setActiveInteractionModal(null)} />
       )}
     </section>
   );
