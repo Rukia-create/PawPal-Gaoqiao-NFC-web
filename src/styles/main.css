@@ -432,8 +432,8 @@ p {
 .atlas-village-badge {
   align-items: center;
   display: inline-grid;
-  gap: 6px;
-  grid-template-columns: 42px auto 42px;
+  gap: 2px;
+  grid-template-columns: 34px auto 34px;
   justify-content: center;
   margin: 0 auto 12px;
 }
@@ -456,9 +456,9 @@ p {
 
 .atlas-village-badge img {
   display: block;
-  height: 46px;
+  height: 34px;
   object-fit: contain;
-  width: 46px;
+  width: 34px;
 }
 
 .atlas-village-badge img:first-child {
@@ -834,13 +834,28 @@ dd {
 }
 
 .plant-action-modal {
-  gap: 12px;
-  padding: 4px 0 2px;
+  gap: 14px;
+  padding: 6px 0 2px;
+}
+
+.plant-action-copy {
+  background: rgba(255, 250, 240, 0.82);
+  border: 1px dashed rgba(183, 131, 90, 0.38);
+  border-radius: 16px;
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 1.68;
+  margin: 0;
+  padding: 12px 14px;
+  text-align: left;
 }
 
 .plant-action-button {
+  justify-self: center;
   font-size: 15px;
   min-height: 52px;
+  width: min(100%, 230px);
 }
 
 .installation-story-modal {
@@ -930,9 +945,38 @@ dd {
 
 .flower-card-placeholder img {
   display: block;
-  height: 120px;
-  max-width: 100%;
+  border-radius: 14px;
+  height: auto;
+  max-height: min(62vh, 560px);
+  max-width: min(100%, 320px);
   object-fit: contain;
+  width: 100%;
+}
+
+.flower-card-actions {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  width: min(100%, 260px);
+}
+
+.flower-card-actions button {
+  border: 1px solid rgba(104, 76, 47, 0.18);
+  border-radius: 999px;
+  cursor: pointer;
+  font-weight: 900;
+  min-height: 44px;
+  padding: 0 16px;
+}
+
+.flower-card-back-button {
+  background: #ffe08a;
+  color: #6d4d21;
+}
+
+.flower-card-save-button {
+  background: var(--green-dark);
+  color: #fffaf0;
 }
 
 .flower-card-placeholder span,
@@ -1706,6 +1750,16 @@ button.collection-card:disabled {
 
 .welcome-point-book-house .welcome-copy {
   margin-top: 14px;
+}
+
+.welcome-point-cafe .real-cat-portrait.hero-cutout-cat {
+  height: min(62vh, 470px);
+  max-height: 54vh;
+  width: min(86vw, 350px);
+}
+
+.welcome-point-cafe .real-cat-portrait.hero-cutout-cat img {
+  transform: scale(1.08);
 }
 
 .welcome-point-lawn .real-cat-portrait.hero-cutout-cat {

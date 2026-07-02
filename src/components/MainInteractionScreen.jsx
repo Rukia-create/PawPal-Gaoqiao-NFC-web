@@ -23,6 +23,7 @@ const FLOWER_OPTIONS = Array.from({ length: 9 }, (_, index) => {
   return {
     id,
     imageSrc: `/images/flowers/${id}.png`,
+    cardImageSrc: `/images/flower-cards/${id}.png`,
     label: `花 ${id}`
   };
 });
@@ -64,15 +65,23 @@ function downloadBlankFlowerCard() {
   URL.revokeObjectURL(url);
 }
 
-function PlantActionsModal({ onClose, onOpenFlowerCard, onOpenClass }) {
+function saveFlowerCard(flower) {
+  if (!flower) return;
+  const link = document.createElement("a");
+  link.href = flower.cardImageSrc;
+  link.download = `pawpal-flower-card-${flower.id}.png`;
+  link.click();
+}
+
+function PlantActionsModal({ onClose, onOpenFlowerCard }) {
   return (
     <Modal title="植物手作" onClose={onClose}>
       <div className="modal-main interaction-modal-main plant-action-modal">
+        <p className="plant-action-copy">
+          选择你最喜欢的花草元素，系统将为你生成一张专属“花语卡片”，保存分享把这份平静带回家。
+        </p>
         <button className="primary-button full-button plant-action-button" type="button" onClick={onOpenFlowerCard}>
           生成我的专属花卡
-        </button>
-        <button className="secondary-button full-button plant-action-button" type="button" onClick={onOpenClass}>
-          非遗手作线下课堂
         </button>
       </div>
     </Modal>
@@ -114,9 +123,15 @@ function FlowerLanguageModal({ onClose }) {
           </>
         ) : (
           <div className="flower-card-placeholder">
-            {selectedFlowerOption ? <img src={selectedFlowerOption.imageSrc} alt="" /> : null}
-            <p>花卡图片区域</p>
-            <span>待补充对应花卡图片</span>
+            {selectedFlowerOption ? <img src={selectedFlowerOption.cardImageSrc} alt="我的专属花卡" /> : null}
+            <div className="flower-card-actions">
+              <button className="flower-card-back-button" type="button" onClick={() => setIsGenerated(false)}>
+                返回
+              </button>
+              <button className="flower-card-save-button" type="button" onClick={() => saveFlowerCard(selectedFlowerOption)}>
+                保存
+              </button>
+            </div>
           </div>
         )}
       </div>
@@ -236,7 +251,7 @@ function CatOracleModal({ point, onClose }) {
       <div className="modal-main interaction-modal-main oracle-modal-main">
         <p>{point.activityText}</p>
         <img className="oracle-scene-image" src="/images/cat-oracle-scene.png" alt="猫神占卜" />
-        <button className="primary-button full-button" type="button" onClick={drawFortune}>
+        <button className="primary-button full-button" type="button" disabled={!!fortune} onClick={drawFortune}>
           求签
         </button>
         {fortune && (
@@ -377,7 +392,6 @@ export default function MainInteractionScreen({
       {activeInteractionModal === "plant-actions" && (
         <PlantActionsModal
           onClose={() => setActiveInteractionModal(null)}
-          onOpenClass={() => setActiveInteractionModal("class")}
           onOpenFlowerCard={() => setActiveInteractionModal("flower")}
         />
       )}

@@ -9,7 +9,7 @@ import SimulatedNfcEntry from "./components/SimulatedNfcEntry.jsx";
 import ThemeSongPage from "./components/ThemeSongPage.jsx";
 import WelcomeScreen from "./components/WelcomeScreen.jsx";
 import { points } from "./data/points.js";
-import { playPointAudio, stopPointAudio } from "./services/audioPlayer.js";
+import { stopPointAudio } from "./services/audioPlayer.js";
 import {
   collectCat,
   collectMusicFragment,
@@ -89,9 +89,8 @@ export default function App() {
     setCurrentView("atlasHome");
   }
 
-  async function openMusicModal() {
-    const result = await playPointAudio(currentPoint);
-    setPlaybackMessage(result.message);
+  function openMusicModal() {
+    setPlaybackMessage("");
     if (currentPoint.musicType === "fragment" && currentPoint.fragmentId) {
       collectMusicFragment(currentPoint.fragmentId);
       refreshCollection();
