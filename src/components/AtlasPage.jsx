@@ -31,7 +31,7 @@ export default function AtlasPage({
       <header className="atlas-header">
         <p className="eyebrow">高桥宠物友好村</p>
         <h1>PawPal 图鉴</h1>
-        <p>猫爪已点亮 {litCount} / {points.length}，音乐碎片 {unlockedFragments.length} / 5</p>
+        <p>猫爪已点亮 {litCount} / {points.length}，音乐碎片 {unlockedFragments.length} / {MUSIC_FRAGMENT_IDS.length}</p>
       </header>
 
       <div className="atlas-tabs" role="tablist" aria-label="图鉴类型">
@@ -78,7 +78,7 @@ export default function AtlasPage({
       {activeTab === "music" && (
         <section className="music-atlas-card">
           <h2>主题曲碎片</h2>
-          <p>去不同点位点击「听听这里」，收集 5 个声音碎片。</p>
+          <p>去不同点位点击「听听这里」，收集 {MUSIC_FRAGMENT_IDS.length} 个声音碎片。</p>
           <div className="fragment-grid">
             {MUSIC_FRAGMENT_IDS.map((fragmentId, index) => {
               const unlocked = unlockedFragments.includes(fragmentId);
@@ -97,7 +97,7 @@ export default function AtlasPage({
             type="button"
             onClick={onOpenThemeSong}
           >
-            {completeMusicUnlocked ? "播放完整主题曲" : "集齐 5 个碎片后解锁"}
+            {completeMusicUnlocked ? "播放完整主题曲" : `集齐 ${MUSIC_FRAGMENT_IDS.length} 个碎片后解锁`}
           </button>
         </section>
       )}

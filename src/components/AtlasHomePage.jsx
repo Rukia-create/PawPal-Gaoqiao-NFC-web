@@ -5,7 +5,11 @@ export default function AtlasHomePage({ onBack, onOpenCatAtlas, onOpenMusicAtlas
     <section className="page-v03 atlas-home">
       <button className="back-button" type="button" onClick={onBack}>← 返回</button>
       <header>
-        <p>收藏入口</p>
+        <div className="atlas-village-badge" aria-label="高桥村">
+          <img src="/images/atlas/village-paw-yellow.png" alt="" />
+          <span>高桥村</span>
+          <img src="/images/atlas/village-paw-black.png" alt="" />
+        </div>
         <h1>PawPal 图鉴册</h1>
       </header>
       <div className="atlas-home-actions">

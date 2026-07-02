@@ -19,8 +19,8 @@ export default function ThemeSongPage({ onOpenAtlas, onOpenPoint, unlockedFragme
         <h1>{isUnlocked ? "PawPal 高桥慢游主题曲已解锁" : "主题曲还在路上"}</h1>
         <p>
           {isUnlocked
-            ? "五个音乐碎片已经拼在一起。第一版先用文字模拟播放，后续可接入完整 mp3。"
-            : `已收集 ${unlockedCount} / ${MUSIC_FRAGMENT_IDS.length} 个音乐碎片，继续去不同点位打开音乐图鉴。`}
+            ? `${MUSIC_FRAGMENT_IDS.length} 个音乐片段已经拼在一起。第一版先用文字模拟播放，后续可接入完整 mp3。`
+            : `已收集 ${unlockedCount} / ${MUSIC_FRAGMENT_IDS.length} 个音乐片段，继续去不同点位打开音乐图鉴。`}
         </p>
         <div className="theme-player">
           {isUnlocked ? getThemePlaybackMessage(fullThemeAudioSrc) : "完整主题曲尚未解锁"}

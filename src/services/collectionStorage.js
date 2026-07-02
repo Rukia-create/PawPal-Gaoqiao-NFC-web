@@ -1,7 +1,7 @@
 const CAT_KEY = "pawpal_collected_cats";
 const MUSIC_KEY = "pawpal_music_fragments";
 const THEME_KEY = "pawpal_theme_unlocked";
-const TOTAL_FRAGMENTS = 5;
+const TOTAL_FRAGMENTS = 8;
 
 function canUseStorage() {
   return typeof window !== "undefined" && Boolean(window.localStorage);

@@ -9,7 +9,7 @@ import SimulatedNfcEntry from "./components/SimulatedNfcEntry.jsx";
 import ThemeSongPage from "./components/ThemeSongPage.jsx";
 import WelcomeScreen from "./components/WelcomeScreen.jsx";
 import { points } from "./data/points.js";
-import { playPointAudio } from "./services/audioPlayer.js";
+import { playPointAudio, stopPointAudio } from "./services/audioPlayer.js";
 import {
   collectCat,
   collectMusicFragment,
@@ -99,6 +99,11 @@ export default function App() {
     setShowMusicModal(true);
   }
 
+  function closeMusicModal() {
+    stopPointAudio();
+    setShowMusicModal(false);
+  }
+
   function toggleCatMove() {
     setIsCatMoved((value) => !value);
   }
@@ -131,7 +136,7 @@ export default function App() {
           {showMusicModal && (
             <CurrentMusicModal
               collectedMusicFragments={collection.collectedMusicFragments}
-              onClose={() => setShowMusicModal(false)}
+              onClose={closeMusicModal}
               playbackMessage={playbackMessage}
               point={currentPoint}
               themeUnlocked={collection.isThemeUnlocked}

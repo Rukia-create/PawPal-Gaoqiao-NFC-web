@@ -18,16 +18,28 @@ const BOTTOM_ACTIONS = {
   }
 };
 
-const FLOWER_OPTIONS = [
-  "\u6842\u82B1",
-  "\u8584\u8377",
-  "\u9EA6\u7A57",
-  "\u96CF\u83CA",
-  "\u94F6\u674F",
-  "\u677E\u679C",
-  "\u85B0\u8863\u8349",
-  "\u67AB\u53F6",
-  "\u6EE1\u5929\u661F"
+const FLOWER_OPTIONS = Array.from({ length: 9 }, (_, index) => {
+  const id = index + 1;
+  return {
+    id,
+    imageSrc: `/images/flowers/${id}.png`,
+    label: `花 ${id}`
+  };
+});
+
+const ORACLE_FORTUNES = [
+  {
+    title: "大吉",
+    text: "今日宜撸猫，宜在阳光下打盹，宜被柔软的事物包围。"
+  },
+  {
+    title: "吉",
+    text: "转角或遇猫，遇事可从容。该来的总会来，不慌不忙就好。"
+  },
+  {
+    title: "中吉",
+    text: "无风无浪，有猫有闲。寻常日子，也是一种偏爱的安排。"
+  }
 ];
 
 const ISLAND_IDENTITIES = [
@@ -52,49 +64,59 @@ function downloadBlankFlowerCard() {
   URL.revokeObjectURL(url);
 }
 
+function PlantActionsModal({ onClose, onOpenFlowerCard, onOpenClass }) {
+  return (
+    <Modal title="植物手作" onClose={onClose}>
+      <div className="modal-main interaction-modal-main plant-action-modal">
+        <button className="primary-button full-button plant-action-button" type="button" onClick={onOpenFlowerCard}>
+          生成我的专属花卡
+        </button>
+        <button className="secondary-button full-button plant-action-button" type="button" onClick={onOpenClass}>
+          非遗手作线下课堂
+        </button>
+      </div>
+    </Modal>
+  );
+}
+
 function FlowerLanguageModal({ onClose }) {
-  const [selected, setSelected] = useState([]);
+  const [selectedFlower, setSelectedFlower] = useState(null);
   const [isGenerated, setIsGenerated] = useState(false);
 
-  function toggleFlower(flower) {
-    setSelected((current) => {
-      if (current.includes(flower)) {
-        return current.filter((item) => item !== flower);
-      }
-      if (current.length >= 3) {
-        return current;
-      }
-      return [...current, flower];
-    });
-  }
+  const selectedFlowerOption = FLOWER_OPTIONS.find((flower) => flower.id === selectedFlower);
 
   return (
-    <Modal title="\u6211\u7684\u4E13\u5C5E\u82B1\u8BED\u5361" onClose={onClose}>
+    <Modal title={isGenerated ? "我的专属花卡" : "选择一朵你喜爱的花"} onClose={onClose}>
       <div className="modal-main interaction-modal-main">
-        <p>\u9009\u62E9\u4F60\u6700\u559C\u6B22\u7684\u4E09\u79CD\u82B1\u8349\u5143\u7D20</p>
-        <div className="flower-option-grid">
-          {FLOWER_OPTIONS.map((flower) => (
+        {!isGenerated ? (
+          <>
+            <div className="flower-option-grid">
+              {FLOWER_OPTIONS.map((flower) => (
+                <button
+                  className={selectedFlower === flower.id ? "flower-option selected" : "flower-option"}
+                  key={flower.id}
+                  type="button"
+                  onClick={() => setSelectedFlower(flower.id)}
+                  aria-label={flower.label}
+                >
+                  <img src={flower.imageSrc} alt="" />
+                </button>
+              ))}
+            </div>
             <button
-              className={selected.includes(flower) ? "flower-option selected" : "flower-option"}
-              key={flower}
+              className="primary-button full-button flower-generate-button"
               type="button"
-              onClick={() => toggleFlower(flower)}
+              disabled={!selectedFlower}
+              onClick={() => setIsGenerated(true)}
             >
-              <span aria-hidden="true" />
-              {flower}
+              生成花卡
             </button>
-          ))}
-        </div>
-        <button className="primary-button full-button" type="button" onClick={() => setIsGenerated(true)}>
-          \u751F\u6210\u82B1\u8BED\u5361\u7247
-        </button>
-        {isGenerated && (
+          </>
+        ) : (
           <div className="flower-card-placeholder">
-            <p>\u4E13\u5C5E\u201C\u82B1\u8BED\u5361\u7247\u201D</p>
-            <span>\u56FE\u7247\u5185\u5BB9\u5F85\u8865\u5145</span>
-            <button className="primary-button" type="button" onClick={downloadBlankFlowerCard}>
-              \u4E0B\u8F7D\u4FDD\u5B58
-            </button>
+            {selectedFlowerOption ? <img src={selectedFlowerOption.imageSrc} alt="" /> : null}
+            <p>花卡图片区域</p>
+            <span>待补充对应花卡图片</span>
           </div>
         )}
       </div>
@@ -202,23 +224,28 @@ function DeerCabinModal({ onClose }) {
 }
 
 function CatOracleModal({ point, onClose }) {
-  const [isDrawn, setIsDrawn] = useState(false);
+  const [fortune, setFortune] = useState(null);
+
+  function drawFortune() {
+    const nextFortune = ORACLE_FORTUNES[Math.floor(Math.random() * ORACLE_FORTUNES.length)];
+    setFortune(nextFortune);
+  }
 
   return (
     <Modal title="猫神占卜" onClose={onClose}>
       <div className="modal-main interaction-modal-main oracle-modal-main">
         <p>{point.activityText}</p>
         <img className="oracle-scene-image" src="/images/cat-oracle-scene.png" alt="猫神占卜" />
-        <button className="primary-button full-button" type="button" onClick={() => setIsDrawn(true)}>
+        <button className="primary-button full-button" type="button" onClick={drawFortune}>
           求签
         </button>
-        {isDrawn && (
+        {fortune && (
           <div className="oracle-fortune-card">
             <div className="oracle-fortune-stick">
               <span>猫神签</span>
-              <strong>大吉</strong>
+              <strong>{fortune.title}</strong>
             </div>
-            <p>今日适合放心出发。会有一件柔软的小事，替你把心情点亮。</p>
+            <p>{fortune.text}</p>
           </div>
         )}
       </div>
@@ -241,6 +268,11 @@ export default function MainInteractionScreen({
   const isCatOraclePoint = point.id === "cat-oracle";
 
   function handleCatClick() {
+    if (isCafePoint) {
+      setActiveInteractionModal("plant-actions");
+      return;
+    }
+
     if (isCatOraclePoint) {
       setActiveInteractionModal("oracle");
       return;
@@ -251,16 +283,7 @@ export default function MainInteractionScreen({
 
   function renderInteractionTip() {
     if (isCafePoint) {
-      return (
-        <div className="custom-interaction-actions">
-          <button type="button" onClick={() => setActiveInteractionModal("flower")}>
-            \u6211\u7684\u4E13\u5C5E\u82B1\u8BED\u5361
-          </button>
-          <button type="button" onClick={() => setActiveInteractionModal("class")}>
-            \u975E\u9057\u624B\u4F5C\u7EBF\u4E0B\u8BFE\u5802
-          </button>
-        </div>
-      );
+      return null;
     }
 
     if (isCatIslandPoint) {
@@ -288,7 +311,7 @@ export default function MainInteractionScreen({
   return (
     <section className="interaction-v03">
       <div className="interaction-stage">
-        {!isCatOraclePoint && (
+        {!isCatOraclePoint && !isCafePoint && (
           <div className={isCatMoved ? "activity-tip shown" : "activity-tip"}>
             {renderInteractionTip()}
           </div>
@@ -332,6 +355,13 @@ export default function MainInteractionScreen({
 
       {activeInteractionModal === "flower" && (
         <FlowerLanguageModal onClose={() => setActiveInteractionModal(null)} />
+      )}
+      {activeInteractionModal === "plant-actions" && (
+        <PlantActionsModal
+          onClose={() => setActiveInteractionModal(null)}
+          onOpenClass={() => setActiveInteractionModal("class")}
+          onOpenFlowerCard={() => setActiveInteractionModal("flower")}
+        />
       )}
       {activeInteractionModal === "class" && (
         <CraftClassModal onClose={() => setActiveInteractionModal(null)} />

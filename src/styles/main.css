@@ -173,6 +173,25 @@ p {
   padding: 0 16px;
 }
 
+.primary-button:disabled {
+  background: #c9c3b7;
+  border-color: #c9c3b7;
+  color: rgba(255, 255, 255, 0.86);
+  cursor: not-allowed;
+  opacity: 1;
+}
+
+.secondary-button {
+  background: #fffaf0;
+  border: 1px solid rgba(104, 76, 47, 0.24);
+  border-radius: 999px;
+  color: #6d583c;
+  cursor: pointer;
+  font-weight: 900;
+  min-height: 46px;
+  padding: 0 16px;
+}
+
 .full-button {
   width: 100%;
 }
@@ -408,6 +427,46 @@ p {
 
 .atlas-home header {
   margin-bottom: clamp(28px, 7vh, 56px);
+}
+
+.atlas-village-badge {
+  align-items: center;
+  display: inline-grid;
+  gap: 6px;
+  grid-template-columns: 42px auto 42px;
+  justify-content: center;
+  margin: 0 auto 12px;
+}
+
+.atlas-village-badge span {
+  align-items: center;
+  background: rgba(255, 253, 247, 0.96);
+  border: 2px solid rgba(224, 182, 83, 0.72);
+  border-radius: 18px;
+  color: #316440;
+  display: inline-flex;
+  font-size: 20px;
+  font-weight: 900;
+  height: 42px;
+  justify-content: center;
+  min-width: 104px;
+  padding: 0 18px;
+  white-space: nowrap;
+}
+
+.atlas-village-badge img {
+  display: block;
+  height: 46px;
+  object-fit: contain;
+  width: 46px;
+}
+
+.atlas-village-badge img:first-child {
+  transform: rotate(-8deg);
+}
+
+.atlas-village-badge img:last-child {
+  transform: rotate(8deg);
 }
 
 .atlas-home-actions {
@@ -714,6 +773,57 @@ dd {
   text-align: center;
 }
 
+.music-fragment-message {
+  align-items: center;
+  background: #fffaf0;
+  border: 2px dashed rgba(245, 202, 98, 0.74);
+  border-radius: 20px;
+  color: #7b6848;
+  display: grid;
+  gap: 7px;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.5;
+  margin: 0 auto;
+  max-width: 330px;
+  padding: 14px 16px;
+  text-align: center;
+}
+
+.music-fragment-message strong {
+  color: #5f452d;
+  display: block;
+  font-size: 16px;
+  font-weight: 900;
+  line-height: 1.35;
+}
+
+.music-profile .record-disc {
+  margin-bottom: 6px;
+}
+
+.music-fragment-message__intro,
+.music-fragment-message__hint {
+  color: #7b6848;
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.music-fragment-audio {
+  display: block;
+  max-width: 330px;
+  width: 100%;
+}
+
+.music-fragment-audio-note {
+  color: #7b6848;
+  font-size: 12px;
+  font-weight: 600;
+  margin: -2px 0 0;
+  text-align: center;
+}
+
 .interaction-modal-main {
   display: grid;
   gap: 14px;
@@ -723,42 +833,63 @@ dd {
   margin-bottom: 0;
 }
 
+.plant-action-modal {
+  gap: 12px;
+  padding: 4px 0 2px;
+}
+
+.plant-action-button {
+  font-size: 15px;
+  min-height: 52px;
+}
+
 .flower-option-grid {
   display: grid;
-  gap: 8px;
+  gap: 10px;
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .flower-option {
   align-items: center;
+  aspect-ratio: 1;
   background: #fffaf0;
   border: 1px solid rgba(183, 131, 90, 0.34);
-  border-radius: 16px;
+  border-radius: 14px;
   color: var(--ink);
   cursor: pointer;
   display: grid;
-  font-weight: 900;
-  gap: 6px;
   justify-items: center;
-  min-height: 76px;
-  padding: 8px 4px;
+  min-height: 0;
+  overflow: hidden;
+  padding: 7px;
+  transition: border-color 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease;
 }
 
-.flower-option span {
-  background:
-    radial-gradient(circle at 50% 35%, #f4d994 0 8px, transparent 9px),
-    radial-gradient(circle at 34% 46%, #e8c77b 0 7px, transparent 8px),
-    radial-gradient(circle at 66% 46%, #e8c77b 0 7px, transparent 8px),
-    linear-gradient(135deg, transparent 48%, #8fa56f 49% 55%, transparent 56%);
-  border-radius: 50%;
-  height: 28px;
-  width: 28px;
+.flower-option img {
+  display: block;
+  height: 100%;
+  max-height: 78px;
+  max-width: 100%;
+  object-fit: contain;
+  width: 100%;
+}
+
+.flower-option:nth-child(5) img,
+.flower-option:nth-child(9) img {
+  max-height: 96px;
+  max-width: 118%;
+  transform: scale(1.24);
 }
 
 .flower-option.selected {
-  background: #fff0bd;
-  border-color: #d9aa44;
-  box-shadow: 0 8px 18px rgba(103, 76, 42, 0.13);
+  background: #fff6d7;
+  border-color: #d39b35;
+  box-shadow: 0 8px 18px rgba(103, 76, 42, 0.13), inset 0 0 0 2px rgba(211, 155, 53, 0.22);
+  transform: translateY(-1px);
+}
+
+.flower-generate-button {
+  margin-top: 2px;
 }
 
 .flower-card-placeholder,
@@ -775,6 +906,13 @@ dd {
   min-height: 180px;
   padding: 18px;
   text-align: center;
+}
+
+.flower-card-placeholder img {
+  display: block;
+  height: 120px;
+  max-width: 100%;
+  object-fit: contain;
 }
 
 .flower-card-placeholder span,
@@ -1162,9 +1300,91 @@ dd {
   gap: 14px;
 }
 
+.music-collection-grid {
+  gap: 12px;
+}
+
 .collection-card {
   padding: 16px;
   text-align: center;
+}
+
+button.collection-card {
+  border: 1px solid var(--line);
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+}
+
+button.collection-card:disabled {
+  cursor: not-allowed;
+}
+
+.collection-card.music {
+  align-content: center;
+  display: grid;
+  gap: 8px;
+  min-height: 188px;
+  padding: 14px 10px;
+  transition: background 0.18s ease, box-shadow 0.18s ease, opacity 0.18s ease, transform 0.18s ease;
+}
+
+.collection-card.music .record-disc {
+  height: 72px;
+  margin: 0 auto 2px;
+  width: 72px;
+}
+
+.collection-card.music h2 {
+  color: #5f452d;
+  font-size: 15px;
+  line-height: 1.25;
+  margin: 0;
+}
+
+.collection-card.music p {
+  color: #7b6848;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.35;
+  margin: 0;
+  min-height: 32px;
+}
+
+.collection-card.music small {
+  color: #316440;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.collection-card.music.playing {
+  background: #fff0bd;
+  border-color: rgba(224, 182, 83, 0.82);
+  box-shadow: 0 18px 30px rgba(103, 76, 42, 0.18);
+  transform: translateY(-2px);
+}
+
+.collection-card.music.uncollected {
+  background: #eee9df;
+  box-shadow: none;
+  opacity: 0.72;
+}
+
+.collection-card.music.uncollected .record-disc {
+  filter: grayscale(1);
+  opacity: 0.46;
+}
+
+.collection-card.music.uncollected h2,
+.collection-card.music.uncollected p,
+.collection-card.music.uncollected small {
+  color: #8a8174;
+}
+
+.collection-card.music.disabled {
+  background: #eee9df;
+  box-shadow: none;
+  opacity: 0.48;
 }
 
 .collection-card .cat-image-button {

@@ -1,4 +1,4 @@
-﻿export const MUSIC_FRAGMENT_IDS = [1, 2, 3, 4, 5];
+﻿export const MUSIC_FRAGMENT_IDS = [1, 2, 3, 4, 5, 6, 7, 8];
 
 export const points = [
   {
@@ -20,8 +20,8 @@ export const points = [
     musicType: "fragment",
     fragmentId: 1,
     musicLabel: "主题曲片段 01",
-    musicDescription: "这是 PawPal 主题曲的第一个片段，像刚进入猫岛时听到的第一阵风。",
-    audioSrc: "/audio/fragment-01.mp3",
+    musicDescription: "恭喜你，收集到高桥宠物友好村主题曲片段 01 集齐8个片段可以解锁完整主题曲哦！",
+    audioSrc: "/audio/fragments/qiaomiaoqiyuan-01.mp3",
     fullThemeAudioSrc: "/audio/full-theme.mp3",
     nextPointId: "plant-space"
   },  {
@@ -45,8 +45,8 @@ export const points = [
     musicType: "fragment",
     fragmentId: 2,
     musicLabel: "主题曲片段 02",
-    musicDescription: "这一段像球拍挥动和脚步轻快移动的声音，带着运动后的明亮心情。",
-    audioSrc: "/audio/fragment-02.mp3",
+    musicDescription: "恭喜你，收集到高桥宠物友好村主题曲片段 02 集齐8个片段可以解锁完整主题曲哦！",
+    audioSrc: "/audio/fragments/qiaomiaoqiyuan-02.mp3",
     fullThemeAudioSrc: "/audio/full-theme.mp3",
     nextPointId: "book-house"
   },
@@ -71,8 +71,8 @@ export const points = [
     musicType: "fragment",
     fragmentId: 3,
     musicLabel: "主题曲片段 03",
-    musicDescription: "这一段像书页翻动和轻轻呼吸，适合慢下来。",
-    audioSrc: "/audio/fragment-03.mp3",
+    musicDescription: "恭喜你，收集到高桥宠物友好村主题曲片段 03 集齐8个片段可以解锁完整主题曲哦！",
+    audioSrc: "/audio/fragments/qiaomiaoqiyuan-03.mp3",
     fullThemeAudioSrc: "/audio/full-theme.mp3",
     nextPointId: "cafe"
   },
@@ -98,8 +98,8 @@ export const points = [
     musicType: "fragment",
     fragmentId: 4,
     musicLabel: "主题曲片段 04",
-    musicDescription: "这一段像杯沿旁的轻轻节拍，暖暖地往前走。",
-    audioSrc: "/audio/fragment-04.mp3",
+    musicDescription: "恭喜你，收集到高桥宠物友好村主题曲片段 04 集齐8个片段可以解锁完整主题曲哦！",
+    audioSrc: "/audio/fragments/qiaomiaoqiyuan-04.mp3",
     fullThemeAudioSrc: "/audio/full-theme.mp3",
     nextPointId: "lawn"
   },
@@ -124,8 +124,8 @@ export const points = [
     musicType: "fragment",
     fragmentId: 5,
     musicLabel: "主题曲片段 05",
-    musicDescription: "这一段像草坪上的尾音，轻快地把主题曲补完整。",
-    audioSrc: "/audio/fragment-05.mp3",
+    musicDescription: "恭喜你，收集到高桥宠物友好村主题曲片段 05 集齐8个片段可以解锁完整主题曲哦！",
+    audioSrc: "/audio/fragments/qiaomiaoqiyuan-05.mp3",
     fullThemeAudioSrc: "/audio/full-theme.mp3",
     nextPointId: "cat-oracle"
   },
@@ -147,11 +147,11 @@ export const points = [
     welcomeTitle: "我是 闪电",
     welcomeText: "今天的答案，已经藏在猫签里。",
     activityText: "在幽暗神秘的占卜处，烛光与猫神像静静相伴。借猫灵之眼，通过一次简单的占卜，获得一份温柔的启示或心灵慰藉。",
-    musicType: "ambient",
-    fragmentId: null,
-    musicLabel: "猫神占卜环境声",
-    musicDescription: "像烛火、木签和轻轻猫步交织出的神秘环境声。",
-    audioSrc: "/audio/cat-oracle-ambient.mp3",
+    musicType: "fragment",
+    fragmentId: 6,
+    musicLabel: "主题曲片段 06",
+    musicDescription: "恭喜你，收集到高桥宠物友好村主题曲片段 06 集齐8个片段可以解锁完整主题曲哦！",
+    audioSrc: "/audio/fragments/qiaomiaoqiyuan-06.mp3",
     fullThemeAudioSrc: "/audio/full-theme.mp3",
     nextPointId: "fengwu-museum"
   },
@@ -173,11 +173,11 @@ export const points = [
     welcomeTitle: "我是 疯疯",
     welcomeText: "风物馆存放的都是旧时光里的零碎记忆。",
     activityText: "这里是仓前风物馆。这里曾是机器的轰鸣声回荡的地方，如今盛放的是仓前的光阴与记忆。从老厂房到风物馆，我们保留了砖墙的温度，也留下了属于这座村庄的故事线索。",
-    musicType: "ambient",
-    fragmentId: null,
-    musicLabel: "仓前风物馆环境声",
-    musicDescription: "像老厂房回声、脚步与旧物记忆交织出的风物馆环境声。",
-    audioSrc: "",
+    musicType: "fragment",
+    fragmentId: 7,
+    musicLabel: "主题曲片段 07",
+    musicDescription: "恭喜你，收集到高桥宠物友好村主题曲片段 07 集齐8个片段可以解锁完整主题曲哦！",
+    audioSrc: "/audio/fragments/qiaomiaoqiyuan-07.mp3",
     fullThemeAudioSrc: "/audio/full-theme.mp3",
     nextPointId: "installation"
   },
@@ -195,11 +195,11 @@ export const points = [
     catDescription: "小帕守在装置附近，像是 PawPal 给大家准备的最后一枚合影印章。",
     healingText: "把今天留在一张照片里，也把一点快乐带回去。",
     activityText: "在这里你可以和 PawPal 装置合影，也可以把这条路线推荐给下一位朋友。",
-    musicType: "ambient",
-    fragmentId: null,
-    musicLabel: "装置打卡环境声",
-    musicDescription: "这是打卡点的环境声，不计入主题曲碎片。",
-    audioSrc: "/audio/installation-ambient.mp3",
+    musicType: "fragment",
+    fragmentId: 8,
+    musicLabel: "主题曲片段 08",
+    musicDescription: "恭喜你，收集到高桥宠物友好村主题曲片段 08 集齐8个片段可以解锁完整主题曲哦！",
+    audioSrc: "/audio/fragments/qiaomiaoqiyuan-08.mp3",
     fullThemeAudioSrc: "/audio/full-theme.mp3",
     nextPointId: "cat-island"
   }

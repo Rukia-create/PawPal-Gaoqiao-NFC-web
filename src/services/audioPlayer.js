@@ -1,6 +1,13 @@
 let activeAudio = null;
 
-export async function playPointAudio(point) {
+export function stopPointAudio() {
+  if (!activeAudio) return;
+  activeAudio.pause();
+  activeAudio.currentTime = 0;
+  activeAudio = null;
+}
+
+export async function playPointAudio(point, options = {}) {
   if (!point?.audioSrc) {
     return {
       status: "mock",
@@ -12,8 +19,12 @@ export async function playPointAudio(point) {
   }
 
   try {
-    activeAudio?.pause();
+    stopPointAudio();
     activeAudio = new Audio(point.audioSrc);
+    activeAudio.onended = () => {
+      activeAudio = null;
+      options.onEnded?.();
+    };
     await activeAudio.play();
     return { status: "playing", message: `正在播放：${point.musicLabel}` };
   } catch {
