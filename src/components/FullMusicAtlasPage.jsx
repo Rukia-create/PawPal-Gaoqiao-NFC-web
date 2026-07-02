@@ -9,9 +9,13 @@ function formatFragmentId(fragmentId) {
 
 function FullThemeModal({ audioSrc, onClose }) {
   return (
-    <Modal title="完整主题曲" onClose={onClose}>
+    <Modal title="桥喵奇缘" onClose={onClose}>
       <div className="modal-main full-theme-modal">
-        <p>正在播放 高桥宠物友好村主题曲-桥喵奇缘</p>
+        <div className="full-theme-copy">
+          <span>正在播放 高桥宠物友好村主题曲</span>
+          <strong>桥喵奇缘</strong>
+        </div>
+        <img className="full-theme-cover" src="/images/music/qiaomiao-qiyuan-cover.png" alt="桥喵奇缘" />
         <audio className="full-theme-audio" src={audioSrc} controls autoPlay>
           你的浏览器暂不支持音频播放。
         </audio>

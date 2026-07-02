@@ -227,8 +227,7 @@ function DeerCabinModal({ onClose }) {
       <div className="modal-main interaction-modal-main">
         <p>靠近鹿鹿时，请放慢脚步、降低声音，把手里的食物收好。让沙悟净陪你一起安静观察，给梅花鹿和自己都留一段舒服的距离。</p>
         <div className="course-schedule-placeholder">
-          <p>梅花鹿小屋</p>
-          <span>轻轻靠近，安静相遇</span>
+          <img className="deer-cabin-scene" src="/images/deer/deer-cabin-scene.png" alt="梅花鹿小屋" />
         </div>
         <button className="primary-button full-button" type="button" onClick={onClose}>
           我知道啦
