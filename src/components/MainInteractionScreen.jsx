@@ -10,7 +10,7 @@ const BOTTOM_ACTIONS = {
   },
   cat: {
     iconSrc: "/icons/bottom-nav/paw-icon.png",
-    label: "\u732B\u54AA\u5361"
+    label: "PawPal\u5361"
   },
   music: {
     iconSrc: "/icons/bottom-nav/music-icon.png",
@@ -208,21 +208,7 @@ function CatOracleModal({ point, onClose }) {
     <Modal title="猫神占卜" onClose={onClose}>
       <div className="modal-main interaction-modal-main oracle-modal-main">
         <p>{point.activityText}</p>
-        <div className="oracle-altar" aria-hidden="true">
-          <div className="oracle-candles">
-            <span />
-            <span />
-          </div>
-          <div className="oracle-tube">
-            <div className="oracle-tube__rim" />
-            <div className="oracle-stick oracle-stick--left" />
-            <div className="oracle-stick oracle-stick--center" />
-            <div className="oracle-stick oracle-stick--right" />
-            <div className="oracle-tube__body">
-              <span>猫签</span>
-            </div>
-          </div>
-        </div>
+        <img className="oracle-scene-image" src="/images/cat-oracle-scene.png" alt="猫神占卜" />
         <button className="primary-button full-button" type="button" onClick={() => setIsDrawn(true)}>
           求签
         </button>
@@ -255,10 +241,12 @@ export default function MainInteractionScreen({
   const isCatOraclePoint = point.id === "cat-oracle";
 
   function handleCatClick() {
-    onCatClick();
     if (isCatOraclePoint) {
       setActiveInteractionModal("oracle");
+      return;
     }
+
+    onCatClick();
   }
 
   function renderInteractionTip() {
@@ -291,7 +279,7 @@ export default function MainInteractionScreen({
     }
 
     if (isCatOraclePoint) {
-      return point.activityText;
+      return null;
     }
 
     return point.activityText;
@@ -300,15 +288,20 @@ export default function MainInteractionScreen({
   return (
     <section className="interaction-v03">
       <div className="interaction-stage">
-        <div className={isCatMoved ? "activity-tip shown" : "activity-tip"}>
-          {renderInteractionTip()}
+        {!isCatOraclePoint && (
+          <div className={isCatMoved ? "activity-tip shown" : "activity-tip"}>
+            {renderInteractionTip()}
+          </div>
+        )}
+        <div className={isCatMoved ? "comic-cat-stack moved" : "comic-cat-stack"}>
+          <PawPalCat
+            className="comic-cat"
+            point={point}
+            type="comic"
+            onClick={handleCatClick}
+          />
+          <div className="comic-cat-bubble">点点我，会有惊喜喔</div>
         </div>
-        <PawPalCat
-          className={isCatMoved ? "comic-cat moved" : "comic-cat"}
-          point={point}
-          type="comic"
-          onClick={handleCatClick}
-        />
       </div>
 
       <div className="interaction-label">

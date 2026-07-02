@@ -12,7 +12,7 @@ export default function CompletionModal({ onClose, onOpenAtlas, point }) {
         <h2 id="completion-title">完成任务！</h2>
         <p>你完成了 PawPal 的点位互动：听见这里的声音，也摸摸唤醒了 PawPal。</p>
         <div className="reward-box">
-          <span>已解锁「高桥宠物友好村猫爪图鉴」</span>
+          <span>已解锁「高桥宠物友好村宠物图鉴」</span>
           <strong>获得「{point.badge}」</strong>
         </div>
         <p className="speech-line">{point.feedback}</p>

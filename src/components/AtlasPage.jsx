@@ -40,7 +40,7 @@ export default function AtlasPage({
           type="button"
           onClick={() => setActiveTab("paw")}
         >
-          猫爪图鉴
+          宠物图鉴
         </button>
         <button
           className={activeTab === "music" ? "tab-button active" : "tab-button"}

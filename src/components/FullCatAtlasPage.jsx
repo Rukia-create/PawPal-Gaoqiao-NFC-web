@@ -6,7 +6,7 @@ export default function FullCatAtlasPage({ collectedCats, onBack, points }) {
       <button className="back-button" type="button" onClick={onBack}>← 返回</button>
       <header>
         <p>收集进度 {collectedCats.length} / {points.length}</p>
-        <h1>猫咪图鉴</h1>
+        <h1>宠物图鉴</h1>
       </header>
       <div className="collection-grid">
         {points.map((point) => {
